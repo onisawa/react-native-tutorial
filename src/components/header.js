@@ -15,13 +15,13 @@ const Header = ({ headerText }) => {
 
 const styles = {
   viewStyle: {
-    backgroundColor: color.red,
+    backgroundColor: color.background,
     justifyContent: 'center',
     alignItems: 'center',
     height: 45,
     position: 'relative',
     // ios
-    shadowColor: color.black,
+    shadowColor: color.shadow,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     // android
@@ -29,7 +29,7 @@ const styles = {
   },
   textStyle: {
     fontSize: 20,
-    color: color.white,
+    color: color.text,
     fontWeight: 'bold'
   }
 };

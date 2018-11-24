@@ -14,10 +14,10 @@ const styles = {
   containerStyle: {
     borderWidth: 1,
     borderRadius: 2,
-    borderColor: color.grey,
+    borderColor: color.border,
     borderBottomWidth: 0,
     // ios
-    shadowColor: color.black,
+    shadowColor: color.shadow,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
