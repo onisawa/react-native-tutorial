@@ -1,22 +1,23 @@
 import React from 'react';
 import { View } from 'react-native';
 
-const Card = ({ children }) => {
-  return (
-    <View style={styles.containerStyle}>
-      {children}
-    </View>
-  );
-};
+import color from '../constant/color.json';
+
+const Card = ({ children }) => (
+  <View style={styles.containerStyle}>
+    {children}
+  </View>
+);
+
 
 const styles = {
   containerStyle: {
     borderWidth: 1,
     borderRadius: 2,
-    borderColor: '#DDDDDD',
+    borderColor: color.grey,
     borderBottomWidth: 0,
     // ios
-    shadowColor: '#000000',
+    shadowColor: color.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 2,

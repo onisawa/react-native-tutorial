@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
+import color from '../constant/color.json';
+
 const Header = ({ headerText }) => {
   const { textStyle, viewStyle } = styles;
 
@@ -13,13 +15,13 @@ const Header = ({ headerText }) => {
 
 const styles = {
   viewStyle: {
-    backgroundColor: '#FF0000',
+    backgroundColor: color.red,
     justifyContent: 'center',
     alignItems: 'center',
     height: 45,
     position: 'relative',
     // ios
-    shadowColor: '#000000',
+    shadowColor: color.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     // android
@@ -27,7 +29,7 @@ const styles = {
   },
   textStyle: {
     fontSize: 20,
-    color: '#F8F8F8',
+    color: color.white,
     fontWeight: 'bold'
   }
 };
