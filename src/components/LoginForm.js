@@ -5,7 +5,7 @@ import text from '../constant/text.json';
 import { Card, CardSection, Button, Input } from './common';
 
 class LoginForm extends Component {
-  state = { email: '' };
+  state = { email: '', password: '' };
 
   render() {
     return (
@@ -18,8 +18,16 @@ class LoginForm extends Component {
             onChangeText={email => this.setState({ email })}
           />
         </CardSection>
-
-        <CardSection />
+          
+        <CardSection>
+          <Input 
+            label={text.password}
+            placeholder={text.password}
+            value={this.password}
+            onChangeText={password => this.setState({ password })}
+            isSecure
+          />
+        </CardSection>
 
         <CardSection>
           <Button>
