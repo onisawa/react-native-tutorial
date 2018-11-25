@@ -6,23 +6,51 @@ import '@firebase/auth'
 import text from '../constant/text.json';
 import color from '../constant/color.json';
 
-import { Card, CardSection, Button, Input } from './common';
+import { Card, CardSection, Button, Input, Spinner } from './common';
 
 class LoginForm extends Component {
-  state = { email: '', password: '', error: '' };
+  state = { email: '', password: '', error: '', isLoading: false };
 
   onButtonPress() {
     const { email, password } = this.state;
 
-    this.setState({ error: '' });
+    this.setState({ error: '', isLoading: true });
 
     firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(this.onLoginSuccess.bind(this))
       .catch(() => {
         firebase.auth().createUserWithEmailAndPassword(email, password)
-          .catch(() => {
-            this.setState({ error: 'Authentication Failed.' });
-          });
+          .then(this.onLoginSuccess.bind(this))  
+          .catch(this.onLoginFail.bind(this));
       });
+  }
+
+  onLoginSuccess() {
+    this.setState({
+      email: '',
+      password: '',
+      isLoading: false,
+      error: ''
+    });
+  }
+
+  onLoginFail() {
+    this.setState({
+      isLoading: false,
+      error: 'Authentication Failed.'
+    });
+  }
+
+  renderButton() {
+    if (this.state.isLoading) {
+      return <Spinner size="small" />;
+    }
+
+    return (
+      <Button onPress={this.onButtonPress.bind(this)}>
+        {text.login}
+      </Button>
+    );
   }
 
   render() {
@@ -52,9 +80,7 @@ class LoginForm extends Component {
         </Text>
 
         <CardSection>
-          <Button onPress={this.onButtonPress.bind(this)}>
-            {text.login}
-          </Button>
+          {this.renderButton()}
         </CardSection>
       </Card>
     );
