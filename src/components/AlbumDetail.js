@@ -15,7 +15,7 @@ const AlbumDetail = ({ album }) => {
     thumbnailStyle,
     thumbnailContainerStyle,
     imageStyle
-  } = styles
+  } = styles;
 
   return (
     <Card>
