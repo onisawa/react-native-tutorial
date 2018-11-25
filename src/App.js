@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
-import Header from './components/common/Header';
+import { Header } from './components/common';
 import AlbumList from './components/AlbumList';
 import text from './constant/text.json';
 

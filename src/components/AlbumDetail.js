@@ -4,9 +4,7 @@ import { View, Text, Image, Linking } from 'react-native';
 import color from '../constant/color.json';
 import text from '../constant/text.json';
 
-import Card from './common/Card';
-import CardSection from './common/CardSection';
-import Button from './common/Button';
+import { Card, CardSection, Button } from './common';
 
 const AlbumDetail = ({ album }) => {
   const { title, artist, thumbnail_image, image, url } = album;

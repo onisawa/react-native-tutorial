@@ -9,7 +9,6 @@ const Card = ({ children }) => (
   </View>
 );
 
-
 const styles = {
   containerStyle: {
     borderWidth: 1,
@@ -29,4 +28,4 @@ const styles = {
   }
 };
 
-export default Card;
+export { Card };
