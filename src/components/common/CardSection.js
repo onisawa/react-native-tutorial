@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import color from '../constant/color.json';
+import color from '../../constant/color.json';
 
 const CardSection = ({ children }) => (
   <View style={styles.containerStyle}>
