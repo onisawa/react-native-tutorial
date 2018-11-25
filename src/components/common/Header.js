@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import color from '../constant/color.json';
+import color from '../../constant/color.json';
 
 const Header = ({ headerText }) => {
   const { textStyle, viewStyle } = styles;
@@ -34,4 +34,4 @@ const styles = {
   }
 };
 
-export default Header;
+export { Header };

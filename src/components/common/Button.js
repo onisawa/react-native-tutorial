@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
-import color from '../constant/color.json';
+import color from '../../constant/color.json';
 
 const Button = ({ onPress, children }) => {
-  const { buttonStyle, textStyle } = styles
+  const { buttonStyle, textStyle } = styles;
 
   return (
     <TouchableOpacity onPress={onPress} style={buttonStyle}>
@@ -32,6 +32,6 @@ const styles = {
     paddingTop: 10,
     paddingBottom: 10
   }
-}
+};
 
-export default Button;
+export { Button };
