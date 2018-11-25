@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import firebase from '@firebase/app';
-import '@firebase/auth'
+import '@firebase/auth';
 
 import text from '../constant/text.json';
 import color from '../constant/color.json';

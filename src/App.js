@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import firebase from '@firebase/app';
+import '@firebase/auth';
 
-import { Header } from './components/common';
+import { Header, Spinner } from './components/common';
 import AlbumList from './components/AlbumList';
 import LoginForm from './components/LoginForm';
 import text from './constant/text.json';
 
 class App extends Component {
+  state = { isLoggedIn: null };
+
   componentWillMount() {
     firebase.initializeApp({
       apiKey: 'AIzaSyBEb1nW40ct_YWqdZgJD-eGdOOwd2oQ6m4',
@@ -17,14 +20,32 @@ class App extends Component {
       storageBucket: 'dev-big-lab.appspot.com',
       messagingSenderId: '809693940871'
     });
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ isLoggedIn: true });
+      } else {
+        this.setState({ isLoggedIn: false });
+      }
+    });
+  }
+
+  renderContent() {
+    switch (this.state.isLoggedIn) {
+      case true:
+        return <AlbumList />;
+      case false:
+        return <LoginForm />;
+      default:
+        return <Spinner size="large" />;
+    }
   }
 
   render() {
     return (
       <View style={{ flex: 1 }}>
         <Header headerText={text.album_list_header} />
-        <LoginForm />
-        <AlbumList />
+        {this.renderContent()}
       </View>
     );
   }
