@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import firebase from '@firebase/app';
 import '@firebase/auth';
 
-import { Header, Spinner } from './components/common';
+import { Header, Spinner, Button, CardSection, Card } from './components/common';
 import AlbumList from './components/AlbumList';
 import LoginForm from './components/LoginForm';
 import text from './constant/text.json';
@@ -33,7 +33,20 @@ class App extends Component {
   renderContent() {
     switch (this.state.isLoggedIn) {
       case true:
-        return <AlbumList />;
+        return (
+          <View style={{ flex: 1 }}>
+            <Card>
+              <CardSection>
+                <Button
+                  onPress={() => firebase.auth().signOut()}
+                >
+                  {text.logout}
+                </Button>
+              </CardSection>
+            </Card>
+            <AlbumList />
+          </View>
+        );
       case false:
         return <LoginForm />;
       default:
